@@ -17,6 +17,7 @@ private:
 
 		DWORD64 ServerDLL;
 		DWORD64 ClientDLL;
+		DWORD64 MatchMakingDLL;
 		DWORD64 EntityList;
 		DWORD64 Matrix;
 		DWORD64 ViewAngle;
@@ -36,6 +37,7 @@ public:
 
 	DWORD64 GetClientDLLAddress();
 	DWORD64 GetServerDLLAddress();
+	DWORD64 GetMatchMakingDLLAddress();
 
 	DWORD64 GetEntityListAddress();
 

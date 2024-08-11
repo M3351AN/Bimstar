@@ -170,5 +170,11 @@ namespace Offset
 		uintptr_t bSmokeEffectSpawned = cs2_dumper::schemas::client_dll::C_SmokeGrenadeProjectile::m_bSmokeEffectSpawned; // bool
 	} SmokeGrenadeProjectile; 
 
+	struct
+	{
+		DWORD dwGameTypes = cs2_dumper::offsets::matchmaking_dll::dwGameTypes;
+		DWORD dwGameTypes_mapName = cs2_dumper::offsets::matchmaking_dll::dwGameTypes_mapName;
+	} MatchMaking;
+
 	bool UpdateOffsets();
 }

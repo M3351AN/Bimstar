@@ -4,6 +4,7 @@ bool CGame::InitAddress()
 {
 	this->Address.ClientDLL = reinterpret_cast<DWORD64>(ProcessMgr.GetProcessModuleHandle("client.dll"));
 	this->Address.ServerDLL = reinterpret_cast<DWORD64>(ProcessMgr.GetProcessModuleHandle("server.dll"));
+	this->Address.MatchMakingDLL = reinterpret_cast<DWORD64>(ProcessMgr.GetProcessModuleHandle("matchmaking.dll"));
 	
 	this->Address.EntityList = GetClientDLLAddress() + Offset::EntityList;
 	this->Address.Matrix = GetClientDLLAddress() + Offset::Matrix;
@@ -29,6 +30,11 @@ DWORD64 CGame::GetClientDLLAddress()
 DWORD64 CGame::GetServerDLLAddress()
 {
 	return this->Address.ServerDLL;
+}
+
+DWORD64 CGame::GetMatchMakingDLLAddress()
+{
+	return this->Address.MatchMakingDLL;
 }
 
 DWORD64 CGame::GetEntityListAddress()
