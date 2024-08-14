@@ -44,20 +44,20 @@ bool Offset::UpdateOffsets()
 	}
 	YAML::Node offset = YAML::LoadFile(offsetPath);
 
-	Offset::EntityList = MyConfigSaver::ReadOffset(offset["client_dll"]["dwEntityList"], 0);
-	Offset::LocalPlayerController = MyConfigSaver::ReadOffset(offset["client_dll"]["dwLocalPlayerController"], 0);
-	Offset::Matrix = MyConfigSaver::ReadOffset(offset["client_dll"]["dwViewMatrix"], 0);
-	Offset::GlobalVars = MyConfigSaver::ReadOffset(offset["client_dll"]["dwGlobalVars"], 0);
-	Offset::ViewAngle = MyConfigSaver::ReadOffset(offset["client_dll"]["dwViewAngles"], 0);
-	Offset::LocalPlayerPawn = MyConfigSaver::ReadOffset(offset["client_dll"]["dwLocalPlayerPawn"], 0);
-	Offset::PlantedC4 = MyConfigSaver::ReadOffset(offset["client_dll"]["dwPlantedC4"], 0);
-	Offset::Sensitivity = MyConfigSaver::ReadOffset(offset["client_dll"]["dwSensitivity"], 0);
-	Offset::InputSystem = MyConfigSaver::ReadOffset(offset["inputsystem.dll"]["dwInputSystem"], 0);
-	Offset::ForceJump = MyConfigSaver::ReadOffset(offset["client_dll"]["jump"], 0);
-	Offset::ForceCrouch = MyConfigSaver::ReadOffset(offset["client_dll"]["duck"], 0);
-	Offset::ForceForward = MyConfigSaver::ReadOffset(offset["client_dll"]["forward"], 0);
-	Offset::ForceLeft = MyConfigSaver::ReadOffset(offset["client_dll"]["left"], 0);
-	Offset::ForceRight = MyConfigSaver::ReadOffset(offset["client_dll"]["right"], 0);
+	Offset::EntityList = MyConfigSaver::ReadData(offset["client_dll"]["dwEntityList"], 0);
+	Offset::LocalPlayerController = MyConfigSaver::ReadData(offset["client_dll"]["dwLocalPlayerController"], 0);
+	Offset::Matrix = MyConfigSaver::ReadData(offset["client_dll"]["dwViewMatrix"], 0);
+	Offset::GlobalVars = MyConfigSaver::ReadData(offset["client_dll"]["dwGlobalVars"], 0);
+	Offset::ViewAngle = MyConfigSaver::ReadData(offset["client_dll"]["dwViewAngles"], 0);
+	Offset::LocalPlayerPawn = MyConfigSaver::ReadData(offset["client_dll"]["dwLocalPlayerPawn"], 0);
+	Offset::PlantedC4 = MyConfigSaver::ReadData(offset["client_dll"]["dwPlantedC4"], 0);
+	Offset::Sensitivity = MyConfigSaver::ReadData(offset["client_dll"]["dwSensitivity"], 0);
+	Offset::InputSystem = MyConfigSaver::ReadData(offset["inputsystem.dll"]["dwInputSystem"], 0);
+	Offset::ForceJump = MyConfigSaver::ReadData(offset["client_dll"]["jump"], 0);
+	Offset::ForceCrouch = MyConfigSaver::ReadData(offset["client_dll"]["duck"], 0);
+	Offset::ForceForward = MyConfigSaver::ReadData(offset["client_dll"]["forward"], 0);
+	Offset::ForceLeft = MyConfigSaver::ReadData(offset["client_dll"]["left"], 0);
+	Offset::ForceRight = MyConfigSaver::ReadData(offset["client_dll"]["right"], 0);
 
 	Offset::Entity.IsAlive = MyConfigSaver::ReadOffset(offset["client_dll"]["CCSPlayerController"]["m_bPawnIsAlive"], 0);
 	Offset::Entity.m_bControllingBot = MyConfigSaver::ReadOffset(offset["client_dll"]["CCSPlayerController"]["m_bControllingBot"], 0); 
