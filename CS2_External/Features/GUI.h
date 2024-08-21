@@ -5,6 +5,7 @@
 #include "..\MenuConfig.hpp"
 #include "..\Render.hpp"
 #include "..\Features\Aimbot\Legitbot.hpp"
+#include "..\Features\Aimbot\SilentAim.hpp"
 #include "..\Radar\Radar.h"
 #include "..\TriggerBot.h"
 #include "..\Utils\ConfigMenu.hpp"
@@ -420,9 +421,9 @@ namespace GUI
 					ImGui::SeparatorText(XorStr(ICON_FA_LIGHTBULB" Glow"));
 					float SpeedMin = 1.f, SpeedMax = 20.f;
 					PutSwitch(Lang::MiscText.EnemySensor, 5.f, ImGui::GetFrameHeight() * 1.7, &MiscCFG::EnemySensor, true, "###GlowCol", reinterpret_cast<float*>(&MiscCFG::GlowColor));
-					PutSwitch("Rainbow", 5.f, ImGui::GetFrameHeight() * 1.7, &MiscCFG::GlowRainbow);
+					PutSwitch(XorStr("Rainbow"), 5.f, ImGui::GetFrameHeight() * 1.7, &MiscCFG::GlowRainbow);
 					if (MiscCFG::GlowRainbow)
-						PutSliderFloat("Rainbow Speed: ", 5.f, &MiscCFG::Rainbow_Speed, &SpeedMin, &SpeedMax, "%.1f");
+						PutSliderFloat(XorStr("Rainbow Speed: "), 5.f, &MiscCFG::Rainbow_Speed, &SpeedMin, &SpeedMax, "%.1f");
 
 					ImGui::SeparatorText(XorStr(ICON_FA_COMPASS" External Radar"));
 					float RadarPointSizeProportionMin = 0.8f, RadarPointSizeProportionMax = 2.f;
@@ -489,6 +490,7 @@ namespace GUI
 					PutSwitch(Lang::AimbotText.Enable, 10.f, ImGui::GetFrameHeight() * 1.7, &MenuConfig::AimBot);
 					if (MenuConfig::AimBot)
 					{
+						// PutSwitch("Silent Aim", 10.f, ImGui::GetFrameHeight() * 1.7, &AimControl::silent);
 						PutSwitch(Lang::AimbotText.Ragebot, 10.f, ImGui::GetFrameHeight() * 1.7, &AimControl::Rage);
 
 						ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.f);
@@ -766,9 +768,9 @@ namespace GUI
 					ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 5.f);
 					ImGui::TextDisabled(Lang::MiscText.ThemeList);
 					ImGui::SameLine();
-					if (ImGui::Combo(XorStr("###Theme"), &MenuConfig::Theme, XorStr("AimStar\0NeverLose\0AIMWARE\0Lumine\0Custom\0")))
+					if (ImGui::Combo(XorStr("###Theme"), &MenuConfig::Theme, XorStr("AimStar\0NeverLose\0AIMWARE\0Lumine\0Fatality\0Custom\0")))
 						StyleChanger::UpdateSkin(MenuConfig::Theme);
-					if (MenuConfig::Theme == 4)
+					if (MenuConfig::Theme == 5)
 					{	
 						ImColor windowBgColor = ImGui::GetStyleColorVec4(ImGuiCol_WindowBg);
 						ImColor borderColor = ImGui::GetStyleColorVec4(ImGuiCol_Border);
